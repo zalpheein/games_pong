@@ -25,6 +25,15 @@ while True:
             pygame.quit()
             sys.exit()
 
+    # Visuals
+    screen.fill(bg_color)
+    pygame.draw.rect(screen, light_grey, ball)
+    pygame.draw.rect(screen, light_grey, player)
+    pygame.draw.rect(screen, light_grey, opponent)
+    # 중간 세로선
+    pygame.draw.aaline(screen, light_grey, (screen_width/2, 0), (screen_width/2, screen_height))
+
+
     # Updateing the window
     pygame.display.flip()
     clock.tick(60)
