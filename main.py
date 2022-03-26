@@ -10,7 +10,10 @@ def ball_animation():
     if ball.top <= 0 or ball.bottom >= screen_height:
         ball_speed_y *= -1
     if ball.left <= 0 or ball.right >= screen_width:
-        ball_speed_x *= -1
+        # ball_speed_x *= -1
+
+        # 볼을 중앙에 놓기
+        ball_restart()
 
     # 볼이 플레이어와 만났을 때
     if ball.colliderect(player) or ball.colliderect(opponent):
@@ -32,6 +35,9 @@ def opponent_ai():
         opponent.top = 0
     if opponent.bottom >= screen_height:
         opponent.bottom = screen_height    
+
+def ball_restart():
+    ball.center = (screen_width/2, screen_height/2)
 
 # General setup
 pygame.init()
