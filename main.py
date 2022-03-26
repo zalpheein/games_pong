@@ -18,12 +18,20 @@ opponent = pygame.Rect(10, screen_height/2 - 70, 10, 140)
 bg_color = pygame.Color('gray12')
 light_grey = (200, 200, 200)
 
+# 볼 움직임 속도/스피드
+ball_speed_x = 7
+ball_speed_y = 7
+
 while True:
     # Handling input
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+
+    # 실제 볼을 움직임
+    ball.x += ball_speed_x
+    ball.y += ball_speed_y
 
     # Visuals
     screen.fill(bg_color)
