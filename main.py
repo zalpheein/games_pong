@@ -1,4 +1,4 @@
-import pygame, sys
+import pygame, sys, random
 
 def ball_animation():
     global ball_speed_x, ball_speed_y
@@ -37,7 +37,10 @@ def opponent_ai():
         opponent.bottom = screen_height    
 
 def ball_restart():
+    global ball_speed_x, ball_speed_y
     ball.center = (screen_width/2, screen_height/2)
+    ball_speed_x *= random.choice((1, -1))
+    ball_speed_y *= random.choice((1, -1))
 
 # General setup
 pygame.init()
@@ -58,8 +61,8 @@ bg_color = pygame.Color('gray12')
 light_grey = (200, 200, 200)
 
 # 볼 움직임 속도/스피드
-ball_speed_x = 7
-ball_speed_y = 7
+ball_speed_x = 7 * random.choice((1, -1))
+ball_speed_y = 7 * random.choice((1, -1))
 player_speed = 0
 opponent_speed = 7
 
